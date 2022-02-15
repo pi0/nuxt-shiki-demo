@@ -7,20 +7,11 @@
 
 <script lang="ts" setup>
 const code = ref(`
-import { readFile } from 'fs/promises';
-import { WASI } from 'wasi';
-import { argv, env } from 'process';
+import { getHighlighter } from 'shiki-es'
 
-// Some WASI binaries require:
-//   const importObject = { wasi_unstable: wasi.wasiImport };
-const importObject = { wasi_snapshot_preview1: wasi.wasiImport };
+const highlighter = await getHighlighter({ theme: 'nord' })
 
-const wasm = await WebAssembly.compile(
-  await readFile(new URL('./demo.wasm', import.meta.url))
-);
-const instance = await WebAssembly.instantiate(wasm, importObject);
-
-wasi.start(instance);
+console.log(highlighter.codeToHtml('console.log('shiki');', { lang: 'js' }))
 `.trim())
 
 onMounted(() => {
