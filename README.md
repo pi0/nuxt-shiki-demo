@@ -1,6 +1,9 @@
 # Nuxt 3 Minimal Starter
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+
+Example using [unjs/shiki-es](https://github.com/unjs/shiki-es) with Nuxt 3.
+
+Deployment: http://nuxt-shiki-demo.vercel.app/
 
 ## Setup
 
